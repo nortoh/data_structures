@@ -3,6 +3,7 @@
 #include "single_linked_list.h"
 
 static single_linked_list_t* head = 0;
+static int size = 0;
 
 single_linked_list_t* create_single_list_node(int n) {
     single_linked_list_t* node = malloc(sizeof(single_linked_list_t));
@@ -20,6 +21,7 @@ void add_front_single_list(int n) {
         node->next = head;
         head = node;
     }
+    size++;
 }
 
 void add_back_single_list(int n) {
@@ -37,6 +39,7 @@ void add_back_single_list(int n) {
             curr = curr->next;
         }
     }
+    size++;
 }
 
 void destroy_single_list() {
@@ -47,6 +50,8 @@ void destroy_single_list() {
         curr = curr->next;
         free(tmp);
     }
+
+    size = 0;
 }
 
 void print_single_list() {

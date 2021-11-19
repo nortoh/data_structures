@@ -4,6 +4,7 @@
 
 static double_linked_list_t* head = 0;
 static double_linked_list_t* tail = 0;
+static int size = 0;
 
 double_linked_list_t* create_double_list_node(int n) {
     double_linked_list_t* node = malloc(sizeof(double_linked_list_t));
@@ -23,6 +24,7 @@ void add_front_double_list(int n) {
         node->next = head;
         head = node;
     }
+    size++;
 }
 
 void add_back_double_list(int n) {
@@ -42,6 +44,7 @@ void add_back_double_list(int n) {
             curr = curr->next;
         }
     }
+    size++;
 }
 
 void destroy_double_list() {
@@ -52,6 +55,8 @@ void destroy_double_list() {
         curr = curr->next;
         free(tmp);
     }
+
+    size = 0;
 }
 
 void print_double_list() {
