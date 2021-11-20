@@ -6,8 +6,10 @@
 #include "single_linked_list.h"
 #include "circular_linked_list.h"
 #include "stack.h"
+#include "queue.h"
 
-#define MAX 10
+#define MAX 5
+
 void build_single_list() {
 
     // Add values
@@ -78,7 +80,7 @@ void build_stack() {
 
     stack_t* pop;
 
-    int limit = 3;
+    int limit = rand() % MAX + 1;
     for(int i = 0; i < limit; i++) {
         pop = pop_stack();
         if(pop) {
@@ -92,6 +94,31 @@ void build_stack() {
 
     // Destroy
     destroy_stack();
+}
+
+void build_queue() {
+
+    for(int i = 0; i < MAX; i++) {
+        if(i % 2 == 0) {
+            push_front(rand() & RAND_MAX);
+        } else {
+            push_back(rand() % RAND_MAX);
+        }
+    }
+
+    print_queue();
+
+    queue_t* pop;
+    int limit = rand() % MAX + 1;
+    for(int i = 0; i < limit; i++) {
+        pop = pop_queue();
+        printf("Popped from queue: %d (%p)\n", pop->key, pop->next);
+        free(pop);
+    }
+
+    print_queue();
+
+    destroy_queue();
 }
 
 int main(int argc, char** argv) {
@@ -114,6 +141,11 @@ int main(int argc, char** argv) {
 
     printf("=== Stack ===\n");
     build_stack();
+
+    printf("\n");
+
+    printf("=== Queue ===\n");
+    build_queue();
 
     return 0;
 }
