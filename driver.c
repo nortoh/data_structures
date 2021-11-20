@@ -4,55 +4,97 @@
 #include <unistd.h>
 #include "double_linked_list.h"
 #include "single_linked_list.h"
+#include "circular_linked_list.h"
+#include "stack.h"
 
+#define MAX 10
 void build_single_list() {
-    int max = 10;
 
-    // Add to front
-    for(int i = 0; i < max; i++) {
-        add_front_single_list(rand() % 100);
-    }
-    
-    // Add to back
-    for(int i = 0; i < max; i++) {
-        add_back_single_list(rand() % 100);
+    // Add values
+    for(int i = 0; i < MAX; i++) {
+        if(i % 2 == 0) {
+            add_front_single_list(rand() % RAND_MAX);
+        } else {
+            add_back_single_list(rand() % RAND_MAX);
+        }
     }
 
     // Print the list
     print_single_list();
+
+    printf("Head: %p, Tail: %p\n", (void *) get_single_list_head(), (void *) get_single_list_tail());
 
     // Destroy
     destroy_single_list();
 }
 
 void build_double_list() {
-    int max = 10;
 
-    // Add to front
-    for(int i = 0; i < max; i++) {
-        add_front_double_list(rand() % 100);
-    }
-    
-    // Add to back
-    for(int i = 0; i < max; i++) {
-        add_back_double_list(rand() % 100);
+    // Add values
+    for(int i = 0; i < MAX; i++) {
+        if(i % 2 == 0) {
+            add_front_double_list(rand() % RAND_MAX);
+        } else {
+            add_back_double_list(rand() % RAND_MAX);
+        }
     }
 
     // Print the list
     print_double_list();
 
-    // Print the list in reverse
-    printf("### Reversed ###\n");
-    print_double_list_reverse();
-    
+    printf("Head: %p, Tail: %p\n", (void *) get_double_list_head(), (void *) get_double_list_tail());
     // Destroy
     destroy_double_list();
+}
+
+void build_circular_list() {
+
+    // Add to front
+    for(int i = 0; i < MAX; i++) {
+        add_front_circular_list(rand() % RAND_MAX);
+    }
+    
+    // Add to back
+    for(int i = 0; i < MAX; i++) {
+        add_back_circular_list(rand() % RAND_MAX);
+    }
+
+    // Print the list
+    print_circular_list();
+    
+    // Destroy
+    destroy_circular_list();
+}
+
+void build_stack() {
+
+    // Add values
+    for(int i = 0; i < MAX; i++) {
+        insert_stack_item(rand() % RAND_MAX);
+    }
+
+    // Print the stack
+    print_stack();
+
+    stack_t* pop;
+
+    int limit = 3;
+    for(int i = 0; i < limit; i++) {
+        pop = pop_stack();
+        if(pop) printf("Popped %p: %d\n", (void *) pop, pop->key);
+    }
+    
+    // Print the stack
+    print_stack();
+
+    // Destroy
+    destroy_stack();
 }
 
 int main(int argc, char** argv) {
     srand(time(0));
 
-    printf("Data Structure Playground by Christian Horton\n");
+    printf("Data Structure Playground by Christian Horton\n\n");
 
     printf("=== Single Linked List ===\n");
     build_single_list();
@@ -61,5 +103,14 @@ int main(int argc, char** argv) {
 
     printf("=== Double Linked List ===\n");
     build_double_list();
+
+    printf("\n");
+
+    // printf("=== Circular Linked List ===\n");
+    // build_circular_list();
+
+    printf("=== Stack ===\n");
+    build_stack();
+
     return 0;
 }
