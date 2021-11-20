@@ -23,6 +23,7 @@ jobs:
 
     - name: Build and Run
       run: |
+        sudo apt install -y valgrind
         make clean
         make
-        ./main
+        valgrind ./main
