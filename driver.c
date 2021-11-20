@@ -81,7 +81,10 @@ void build_stack() {
     int limit = 3;
     for(int i = 0; i < limit; i++) {
         pop = pop_stack();
-        if(pop) printf("Popped %p: %d\n", (void *) pop, pop->key);
+        if(pop) {
+            printf("Popped %p: %d\n", (void *) pop, pop->key);
+            free(pop);
+        }
     }
     
     // Print the stack
