@@ -22,6 +22,9 @@ void add_front_circular_list(int n) {
         head->prev = node;
         node->next = head;
         head = node;
+
+        // node->prev = tail;
+        // tail->next = head;
     }
 }
 
@@ -42,6 +45,8 @@ void add_back_circular_list(int n) {
             curr = curr->next;
         }
     }
+
+
 }
 
 void destroy_circular_list() {
@@ -56,8 +61,13 @@ void destroy_circular_list() {
 
 void print_circular_list() {
     circular_linked_list_t* curr = head;
+    if(curr == tail) {
+        printf("Uh\n");
+    }
 
     while(curr) {
+        if(curr == head) printf("@@@");
+        if(curr == tail) printf("###");
         printf("[Circular List Node %p] Value: %d, Prev: %p Next: %p\n", (void *) curr, curr->n, (void *) curr->prev, (void *) curr->next);
         curr = curr->next;
     }
@@ -67,7 +77,9 @@ void print_circular_list_reverse() {
     circular_linked_list_t* curr = tail;
 
     while(curr) {
-        printf("[Circular Double List Node %p] Value: %d, Prev: %p Next: %p\n", (void *) curr, curr->n, (void *) curr->prev, (void *) curr->next);
+
+        if(curr)
+        printf("[Circular List Node %p] Value: %d, Prev: %p Next: %p\n", (void *) curr, curr->n, (void *) curr->prev, (void *) curr->next);
         curr = curr->prev;
     }
 }

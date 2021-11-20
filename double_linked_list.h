@@ -13,6 +13,9 @@ extern void print_double_list();
 extern void print_double_list_reverse();
 extern void destroy_double_list();
 
+extern double_linked_list_t* get_double_list_head();
+extern double_linked_list_t* get_double_list_tail();
+
 double_linked_list_t* create_double_list_node(int n);
 
 #endif

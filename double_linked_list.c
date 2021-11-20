@@ -19,6 +19,7 @@ void add_front_double_list(int n) {
     
     if(!head) {
         head = node;
+        tail = head;
     } else {
         head->prev = node;
         node->next = head;
@@ -32,6 +33,7 @@ void add_back_double_list(int n) {
 
     if(!head) {
         head = node;
+        tail = head;
     } else {
         double_linked_list_t* curr = head;
         while(curr) {
@@ -57,6 +59,14 @@ void destroy_double_list() {
     }
 
     size = 0;
+}
+
+double_linked_list_t* get_double_list_head() {
+    return head;
+}
+
+double_linked_list_t* get_double_list_tail() {
+    return tail;
 }
 
 void print_double_list() {
