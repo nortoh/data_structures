@@ -24,8 +24,6 @@ void build_single_list() {
     // Print the list
     print_single_list();
 
-    printf("Head: %p, Tail: %p\n", (void *) get_single_list_head(), (void *) get_single_list_tail());
-
     // Destroy
     destroy_single_list();
 }
@@ -44,7 +42,6 @@ void build_double_list() {
     // Print the list
     print_double_list();
 
-    printf("Head: %p, Tail: %p\n", (void *) get_double_list_head(), (void *) get_double_list_tail());
     // Destroy
     destroy_double_list();
 }
@@ -90,6 +87,7 @@ void build_stack() {
     }
     
     // Print the stack
+    printf("\n=== After Stacks Pops ===\n");
     print_stack();
 
     // Destroy
@@ -116,6 +114,7 @@ void build_queue() {
         free(pop);
     }
 
+    printf("\n=== After Queue Pops ===\n");
     print_queue();
 
     destroy_queue();

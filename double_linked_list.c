@@ -73,6 +73,8 @@ void print_double_list() {
     double_linked_list_t* curr = head;
 
     while(curr) {
+        if(curr == head) printf("[head] ");
+        if(curr == tail) printf("[tail] ");
         printf("[Double List Node %p] Value: %d, Prev: %p Next: %p\n", (void *) curr, curr->n, (void *) curr->prev, (void *) curr->next);
         curr = curr->next;
     }
@@ -82,6 +84,8 @@ void print_double_list_reverse() {
     double_linked_list_t* curr = tail;
 
     while(curr) {
+        if(curr == head) printf("[head] ");
+        if(curr == tail) printf("[tail] ");
         printf("[Reversed Double List Node %p] Value: %d, Prev: %p Next: %p\n", (void *) curr, curr->n, (void *) curr->prev, (void *) curr->next);
         curr = curr->prev;
     }
