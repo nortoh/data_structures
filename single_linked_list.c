@@ -76,7 +76,7 @@ void print_single_list() {
     while(curr) {
         if(curr == head) printf("[head] ");
         if(curr == tail) printf("[tail] ");
-        printf("[Single List Node %p] Value: %d, Next: %p\n", (void *) curr, curr->n, (void *) curr->next);
+        printf("[%p] Value: %d, Next: %p\n", (void *) curr, curr->n, (void *) curr->next);
         curr = curr->next;
     }
 }

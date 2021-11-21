@@ -62,7 +62,7 @@ void print_queue() {
     while(curr) {
         if(curr == head) printf("[head] ");
         if(curr == tail) printf("[tail] ");
-        printf("[Queue Node %p] Key: %d, Next: %p\n", (void *) curr, curr->key, (void *) curr->next);
+        printf("[%p] Key: %d, Next: %p\n", (void *) curr, curr->key, (void *) curr->next);
         curr = curr->next;
     }
 }

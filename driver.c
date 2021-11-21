@@ -8,7 +8,7 @@
 #include "stack.h"
 #include "queue.h"
 
-#define MAX 5
+#define MAX 2
 
 void build_single_list() {
 
@@ -41,6 +41,11 @@ void build_double_list() {
 
     // Print the list
     print_double_list();
+
+
+    // Print the list in reverse
+    printf("\n=== Reversed ===\n");
+    print_double_list_reverse();
 
     // Destroy
     destroy_double_list();
@@ -75,9 +80,11 @@ void build_stack() {
     // Print the stack
     print_stack();
 
-    stack_t* pop;
 
+    // Pop some elements
+    stack_t* pop;
     int limit = rand() % MAX + 1;
+    printf("\nPopping!\n");
     for(int i = 0; i < limit; i++) {
         pop = pop_stack();
         if(pop) {
@@ -87,7 +94,7 @@ void build_stack() {
     }
     
     // Print the stack
-    printf("\n=== After Stacks Pops ===\n");
+    printf("\n=== After Stack Pops ===\n");
     print_stack();
 
     // Destroy
@@ -104,19 +111,24 @@ void build_queue() {
         }
     }
 
+    // Print the queue
     print_queue();
 
+    // Pop some elements
     queue_t* pop;
     int limit = rand() % MAX + 1;
+    printf("\nPopping!\n");
     for(int i = 0; i < limit; i++) {
         pop = pop_queue();
         printf("Popped from queue: %d (%p)\n", pop->key, pop->next);
         free(pop);
     }
 
+    // Print the queue
     printf("\n=== After Queue Pops ===\n");
     print_queue();
 
+    // Destroy
     destroy_queue();
 }
 
@@ -128,12 +140,12 @@ int main(int argc, char** argv) {
     printf("=== Single Linked List ===\n");
     build_single_list();
 
-    printf("\n");
+    printf("\n=======================================================\n\n");
 
     printf("=== Double Linked List ===\n");
     build_double_list();
 
-    printf("\n");
+    printf("\n=======================================================\n\n");
 
     // printf("=== Circular Linked List ===\n");
     // build_circular_list();
@@ -141,7 +153,7 @@ int main(int argc, char** argv) {
     printf("=== Stack ===\n");
     build_stack();
 
-    printf("\n");
+    printf("\n=======================================================\n\n");
 
     printf("=== Queue ===\n");
     build_queue();

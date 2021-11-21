@@ -57,7 +57,7 @@ void print_stack() {
 
     while(curr) {
         if(curr == head) printf("[head] ");
-        printf("[Stack %p] Value: %d, Next: %p\n", (void *) curr, curr->key, (void *) curr->next);
+        printf("[%p] Value: %d, Next: %p\n", (void *) curr, curr->key, (void *) curr->next);
         curr = curr->next;
     }
 }
