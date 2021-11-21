@@ -72,6 +72,11 @@ double_linked_list_t* get_double_list_tail() {
 void print_double_list() {
     double_linked_list_t* curr = head;
 
+    if(!curr) {
+        printf("Empty!\n");
+        return;
+    }
+
     while(curr) {
         if(curr == head) printf("[head] ");
         if(curr == tail) printf("[tail] ");
@@ -82,6 +87,11 @@ void print_double_list() {
 
 void print_double_list_reverse() {
     double_linked_list_t* curr = tail;
+    
+    if(!curr) {
+        printf("Empty!\n");
+        return;
+    }
 
     while(curr) {
         if(curr == head) printf("[head] ");

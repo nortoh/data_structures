@@ -54,6 +54,11 @@ queue_t* back() {
 void print_queue() {
     queue_t* curr = head;
 
+    if(!curr) {
+        printf("Empty!\n");
+        return;
+    }
+
     while(curr) {
         if(curr == head) printf("[head] ");
         if(curr == tail) printf("[tail] ");

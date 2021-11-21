@@ -68,6 +68,11 @@ void destroy_single_list() {
 void print_single_list() {
     single_linked_list_t* curr = head;
 
+    if(!curr) {
+        printf("Empty!\n");
+        return;
+    }
+
     while(curr) {
         if(curr == head) printf("[head] ");
         if(curr == tail) printf("[tail] ");

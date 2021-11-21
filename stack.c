@@ -49,6 +49,11 @@ void destroy_stack() {
 
 void print_stack() {
     stack_t* curr = head;
+    
+    if(!curr) {
+        printf("Empty!\n");
+        return;
+    }
 
     while(curr) {
         if(curr == head) printf("[head] ");
